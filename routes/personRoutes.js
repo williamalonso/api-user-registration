@@ -24,8 +24,15 @@ router.post('/', async(req, res) => {
 
 });
 
-router.get('/', (req, res) => {
-  res.json({message:'Hello World!'});
+router.get('/getusers', async(req, res) => {
+  
+  try {
+    const people = await Person.find(); // traz todos os dados da Collection
+    res.status(201).json(people);
+  } catch(e) {
+    res.status(500).json({error:e});
+  }
+
 })
 
 module.exports = router;
