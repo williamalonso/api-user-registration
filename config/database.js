@@ -1,7 +1,8 @@
+require('dotenv').config() // chamando o arquivo '.env'
 const mongoose = require('mongoose'); // importando o Mongoose
 
-const userDB = 'williamalalonso';
-const passwordDB = '33cPlmwOZ2bxUptd';
+const userDB = process.env.userDB;
+const passwordDB = process.env.passwordDB;
 
 const connectionString = `mongodb+srv://${userDB}:${passwordDB}@apicluster.9roedc7.mongodb.net/?retryWrites=true&w=majority`;
 
